@@ -32,10 +32,17 @@ const renderCalenderBody = (dates, todos, clickDone) => {
             <div className="date">{date.getDate()}</div>
             {
               todos.filter(todo => {
+                // console.log("Full year: ", date.getFullYear())
+                // console.log("todo.year: ", todo.year)
+                // console.log("Month: ", date.getMonth())
+                // console.log("todo.month: ", todo.month)
+                // console.log("Date: ", date.getDate())
+                // console.log("todo.date: ", todo.date)
                 return todo.year === date.getFullYear() &&
                   todo.month === date.getMonth() &&
                   todo.date === date.getDate();
               }).map(todo => {
+                // console.log("todo found!!!")
                 return (
                   <div
                     key={todo.id}
@@ -64,7 +71,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table className="Calendar" striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
