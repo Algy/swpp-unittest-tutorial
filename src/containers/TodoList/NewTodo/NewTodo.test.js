@@ -53,11 +53,44 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('input').at(0);
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
     expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on year input`, () => {
+    const year = 2020;
+    const component = mount(newTodo);
+    const wrapper = component.find('input').at(1);
+    wrapper.simulate('change', { target: { value: year } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(2020);
+  });
+
+  it(`should set state properly on month input`, () => {
+    const month = 10;
+    const component = mount(newTodo);
+    const wrapper = component.find('input').at(2);
+    wrapper.simulate('change', { target: { value: month } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.month).toEqual(10);
+  });
+
+  it(`should set state properly on date input`, () => {
+    const date = 1;
+    const component = mount(newTodo);
+    const wrapper = component.find('input').at(3);
+    wrapper.simulate('change', { target: { value: date } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.date).toEqual(1);
   });
 
   it(`should set state properly on content input`, () => {
