@@ -41,7 +41,7 @@ class NewTodo extends Component {
         <input
           type="text"
           value={this.state.title}
-          onChange={(event) => this.setState({ title: event.target.value })}
+          onChange={(event) => this.setState({ title: event.target.value })} id='title'
         ></input>
         <label>Content</label>
         <textarea rows="4" type="text" value={this.state.content}
@@ -54,21 +54,21 @@ class NewTodo extends Component {
           value={this.state.dueDate.year}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, year: event.target.value }
-          })}
+          })} id='year'
         ></input>
         month <input
           type="text"
           value={this.state.dueDate.month}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, month: event.target.value }
-          })}
+          })} id='month'
         ></input>
         date <input
           type="text"
           value={this.state.dueDate.date}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, date: event.target.value }
-          })}
+          })} id='date'
         ></input>
         <button onClick={() => this.postTodoHandler()}>Submit</button>
       </div>
