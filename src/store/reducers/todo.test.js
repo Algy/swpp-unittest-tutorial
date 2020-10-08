@@ -42,7 +42,7 @@ describe('Todo Reducer', () => {
 
   it('should toggle todo', () => {
     const stubInitialState = {
-      todos: [stubTodo],
+      todos: [stubTodo, {id: 2, title: 'hell', content: 'o', done: true}],
       selectedTodo: null,
     };
     let newState = reducer(stubInitialState, {
@@ -50,7 +50,7 @@ describe('Todo Reducer', () => {
       targetID: 1,
     });
     expect(newState).toEqual({
-      todos: [{...stubTodo, done: true}],
+      todos: [{...stubTodo, done: true}, {id: 2, title: 'hell', content: 'o', done: true}],
       selectedTodo: null}
     );
     newState = reducer(newState, {
@@ -58,7 +58,7 @@ describe('Todo Reducer', () => {
       targetID: 1,
     });
     expect(newState).toEqual({
-      todos: [{...stubTodo, done: false}],
+      todos: [{...stubTodo, done: false}, {id: 2, title: 'hell', content: 'o', done: true}],
       selectedTodo: null}
     );
     newState = reducer(newState, {
@@ -66,7 +66,7 @@ describe('Todo Reducer', () => {
       targetID: 2,
     });
     expect(newState).toEqual({
-      todos: [{...stubTodo, done: false}],
+      todos: [{...stubTodo, done: false}, {id: 2, title: 'hell', content: 'o', done: false}],
       selectedTodo: null}
     );
   });

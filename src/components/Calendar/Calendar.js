@@ -32,14 +32,14 @@ const renderCalenderBody = (dates, todos, clickDone) => {
             <div className="date">{date.getDate()}</div>
             {
               todos.filter(todo => {
-                return todo.year === date.getFullYear() &&
-                  todo.month === date.getMonth() &&
-                  todo.date === date.getDate();
+                return todo.year == date.getFullYear() &&
+                  todo.month == date.getMonth() &&
+                  todo.date == date.getDate();
               }).map(todo => {
                 return (
                   <div
                     key={todo.id}
-                    className={`todoTitle ${todo.done ? 'done':'notdone'}`}
+                    className='Hello'
                     onClick={() => clickDone(todo.id)}>
                     {todo.title}
                   </div>
