@@ -35,7 +35,7 @@ class TodoCalendar extends Component {
 
   render() {
     return (
-      <div>
+      <div id='root'>
         <div className="link"><NavLink to='/todos' exact>See TodoList</NavLink></div>
         <div className="header">
           <button onClick={this.handleClickPrev}> prev month </button>
