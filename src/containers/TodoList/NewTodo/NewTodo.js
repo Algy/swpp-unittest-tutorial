@@ -39,33 +39,34 @@ class NewTodo extends Component {
         <h1>Add a New Todo!</h1>
         <label>Title</label>
         <input
-          type="text"
-          value={this.state.title}
+          id="todoInputTitle"
+          type="text" value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
         ></input>
         <label>Content</label>
-        <textarea rows="4" type="text" value={this.state.content}
+        <textarea id="todoInputContent"
+          rows="4" type="text" value={this.state.content}
           onChange={(event) => this.setState({ content: event.target.value })}
         >
         </textarea>
         <label>Due Date</label>
         year <input
-          type="text"
-          value={this.state.dueDate.year}
+          id="todoInputYear"
+          type="text" value={this.state.dueDate.year}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, year: event.target.value }
           })}
         ></input>
         month <input
-          type="text"
-          value={this.state.dueDate.month}
+          id="todoInputMonth"
+          type="text" value={this.state.dueDate.month}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, month: event.target.value }
           })}
         ></input>
         date <input
-          type="text"
-          value={this.state.dueDate.date}
+          id="todoInputDate"
+          type="text" value={this.state.dueDate.date}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, date: event.target.value }
           })}
