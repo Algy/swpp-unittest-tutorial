@@ -10,6 +10,17 @@ const stubTodo = {
   content: 'content 1'
 };
 
+const stubTodoForPost = {
+  id: 0,
+  title: 'title 1',
+  content: 'content 1',
+  dueDate: {
+    year: 2016,
+    month: 10,
+    date: 21
+  }
+}
+
 describe('ActionCreators', () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -91,13 +102,13 @@ describe('ActionCreators', () => {
         return new Promise((resolve, reject) => {
           const result = {
             status: 200,
-            data: stubTodo
+            data: {...stubTodo, year: stubTodoForPost.dueDate.year, month: stubTodoForPost.dueDate.month-1, date: stubTodoForPost.dueDate.date}
           };
           resolve(result);
         });
       })
 
-    store.dispatch(actionCreators.postTodo(stubTodo)).then(() => {
+    store.dispatch(actionCreators.postTodo(stubTodoForPost)).then(() => {
       expect(spy).toHaveBeenCalledTimes(1);
       done();
     });

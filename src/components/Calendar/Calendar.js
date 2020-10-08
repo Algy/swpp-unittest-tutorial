@@ -57,14 +57,14 @@ const renderCalenderBody = (dates, todos, clickDone) => {
   }
 
   return (
-    <Table.Body>
+    <Table.Body id='calendar-body'>
       {rows.map((row, i) => (<Table.Row key={i}>{row}</Table.Row>))}
     </Table.Body>
   );
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table id='calendar' striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
@@ -74,7 +74,7 @@ const Calendar = (props) => {
   const dates = [];
   const year = props.year;
   const month = props.month - 1;
-  let date = 1;
+
   let maxDate = (new Date(year, month + 1, 0)).getDate();
 
   for (let date=1; date<=maxDate; date++) {
