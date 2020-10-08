@@ -32,14 +32,14 @@ const renderCalenderBody = (dates, todos, clickDone) => {
             <div className="date">{date.getDate()}</div>
             {
               todos.filter(todo => {
-                return todo.year === date.getFullYear() &&
-                  todo.month === date.getMonth() &&
-                  todo.date === date.getDate();
+                return todo.year == date.getFullYear() &&
+                  todo.month == date.getMonth() &&
+                  todo.date == date.getDate();
               }).map(todo => {
                 return (
                   <div
                     key={todo.id}
-                    className={`todoTitle ${todo.done ? 'done':'notdone'}`}
+                    className='calendarButton'
                     onClick={() => clickDone(todo.id)}>
                     {todo.title}
                   </div>
@@ -64,7 +64,9 @@ const renderCalenderBody = (dates, todos, clickDone) => {
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table
+      className="calendar-component"
+      striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
@@ -80,7 +82,6 @@ const Calendar = (props) => {
   for (let date=1; date<=maxDate; date++) {
     dates.push(new Date(year, month, date));
   }
-
   return renderCalendar(dates, props.todos, props.clickDone);
 }
 
