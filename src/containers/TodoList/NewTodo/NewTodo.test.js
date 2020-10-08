@@ -53,7 +53,7 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('input.title');
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
@@ -63,7 +63,7 @@ describe('<NewTodo />', () => {
   it(`should set state properly on content input`, () => {
     const content = 'TEST_CONTENT'
     const component = mount(newTodo);
-    const wrapper = component.find('textarea');
+    const wrapper = component.find('textarea.content');
     wrapper.simulate('change', { target: { value: content } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual('');
