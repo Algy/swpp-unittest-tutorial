@@ -23,7 +23,7 @@ class RealDetail extends Component {
         <div className="row">
           <div className="left">
             Name:
-        </div>
+          </div>
           <div className="right">
             {title}
           </div>
@@ -31,7 +31,7 @@ class RealDetail extends Component {
         <div className="row">
           <div className="left">
             Content:
-        </div>
+          </div>
           <div className="right">
             {content}
           </div>
