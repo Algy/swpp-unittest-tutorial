@@ -7,7 +7,12 @@ import store from '../store';
 const stubTodo = {
   id: 0,
   title: 'title 1',
-  content: 'content 1'
+  content: 'content 1',
+  dueDate:{
+      year:0,
+      month:0,
+      date:0
+  }
 };
 
 describe('ActionCreators', () => {
