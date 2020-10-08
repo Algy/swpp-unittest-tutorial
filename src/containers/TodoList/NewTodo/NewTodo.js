@@ -40,6 +40,7 @@ class NewTodo extends Component {
         <label>Title</label>
         <input
           type="text"
+          className="title"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
         ></input>
