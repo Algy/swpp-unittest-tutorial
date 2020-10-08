@@ -86,6 +86,15 @@ describe('ActionCreators', () => {
   });
 
   it(`'postTodo' should post todo correctly`, (done) => {
+    const stubTodo={
+      title: 'testtitle',
+      content: 'testcontent',
+      dueDate: {
+        year: '2020',
+        month: '10',
+        date: '8'
+      }
+    };
     const spy = jest.spyOn(axios, 'post')
       .mockImplementation((url, td) => {
         return new Promise((resolve, reject) => {
