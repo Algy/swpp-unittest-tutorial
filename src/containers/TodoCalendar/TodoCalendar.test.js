@@ -44,10 +44,10 @@ const stubInitialState = {
 const mockStore = getMockStore(stubInitialState);
 
 describe('<TodoCalendar />', () => {
-  let todoCalender, spyGetTodos;
+  let todoCalendar, spyGetTodos;
 
   beforeEach(() => {
-    todoCalender = (
+    todoCalendar = (
       <Provider store={mockStore}>
         <ConnectedRouter history={history}>
         <Switch>
@@ -61,7 +61,7 @@ describe('<TodoCalendar />', () => {
   });
 
   it('should render todo calendar', () => {
-    const component = mount(todoCalender);
+    const component = mount(todoCalendar);
     const wrapper = component.find('.spyCalendarTodo');
     expect(wrapper.length).toBe(2);
     expect(wrapper.at(0).text()).toBe('TODO_TEST_TITLE_1');
@@ -71,7 +71,7 @@ describe('<TodoCalendar />', () => {
   });
 
   it('should render previous and next months', () => {
-    const component = mount(todoCalender);
+    const component = mount(todoCalendar);
     const prevBtn = component.find('#calPrevButton');
     const nextBtn = component.find('#calNextButton');
     let wrapper = null;
@@ -95,7 +95,7 @@ describe('<TodoCalendar />', () => {
     const spyToggleTodo =
       jest.spyOn(actionCreators, 'toggleTodo')
         .mockImplementation(id => { return dispatch => {}; });
-    const component = mount(todoCalender);
+    const component = mount(todoCalendar);
     const wrapper = component.find('.spyCalendarTodo').at(0);
     wrapper.simulate('click');
     expect(spyToggleTodo).toBeCalledTimes(1);
