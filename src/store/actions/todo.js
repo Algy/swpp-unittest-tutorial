@@ -10,7 +10,8 @@ export const getTodos_ = (todos) => {
 export const getTodos = () => {
   return dispatch => {
     return axios.get('/api/todo')
-      .then(res => dispatch(getTodos_(res.data)));
+      .then(res => {
+        dispatch(getTodos_(res.data))});
   };
 };
 

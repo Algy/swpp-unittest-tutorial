@@ -23,10 +23,14 @@ const mockStore = getMockStore(stubInitialState);
 describe('<NewTodo />', () => {
   let newTodo;
 
+  //can we mocj hsitory
+  //Is there a better way to do this?
+  //Why is the route / and not /new-todo
+  //do we need to mock entire
   beforeEach(() => {
     newTodo = (
       <Provider store={mockStore}>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter history={history}> 
         <Switch>
           <Route path='/' exact component={NewTodo} />
         </Switch>
@@ -53,7 +57,7 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('.title');
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
