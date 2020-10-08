@@ -53,7 +53,7 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('.title');
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
@@ -68,6 +68,36 @@ describe('<NewTodo />', () => {
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual('');
     expect(newTodoInstance.state.content).toEqual(content);
+  });
+
+  it(`should set state properly on year input`, () => {
+    const year = 2020
+    const component = mount(newTodo);
+    const wrapper = component.find('.year');
+    wrapper.simulate('change', { target: { value: year } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.year).toEqual(year);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+  
+  it(`should set state properly on month input`, () => {
+    const month = 10
+    const component = mount(newTodo);
+    const wrapper = component.find('.month');
+    wrapper.simulate('change', { target: { value: month } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.month).toEqual(month);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+  
+  it(`should set state properly on date input`, () => {
+    const date = 8
+    const component = mount(newTodo);
+    const wrapper = component.find('.date');
+    wrapper.simulate('change', { target: { value: date } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.date).toEqual(date);
+    expect(newTodoInstance.state.content).toEqual('');
   });
 });
 
