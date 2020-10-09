@@ -53,9 +53,24 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    let wrapper = component.find('.title');
     wrapper.simulate('change', { target: { value: title } });
-    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    let newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual(title);
+    expect(newTodoInstance.state.content).toEqual('');
+
+    wrapper = component.find('.year');
+    wrapper.simulate('change', { target: { value: title } });
+    expect(newTodoInstance.state.title).toEqual(title);
+    expect(newTodoInstance.state.content).toEqual('');
+
+    wrapper = component.find('.month');
+    wrapper.simulate('change', { target: { value: title } });
+    expect(newTodoInstance.state.title).toEqual(title);
+    expect(newTodoInstance.state.content).toEqual('');
+
+    wrapper = component.find('.date');
+    wrapper.simulate('change', { target: { value: title } });
     expect(newTodoInstance.state.title).toEqual(title);
     expect(newTodoInstance.state.content).toEqual('');
   });
