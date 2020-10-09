@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react';
 
 import './Calendar.css';
 
@@ -27,6 +27,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
     for (let day=0; day<7; day++) {
       const date = dates[i];
       if (date !== undefined && day === date.getDay()) {
+        
         row.push(
           <Table.Cell className={`cell ${day === 0 && 'sunday'}`} key={7*week+day}>
             <div className="date">{date.getDate()}</div>
@@ -39,6 +40,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
                 return (
                   <div
                     key={todo.id}
+                    id={todo.id}
                     className={`todoTitle ${todo.done ? 'done':'notdone'}`}
                     onClick={() => clickDone(todo.id)}>
                     {todo.title}
@@ -73,7 +75,7 @@ const renderCalendar = (dates, todos, clickDone) => (
 const Calendar = (props) => {
   const dates = [];
   const year = props.year;
-  const month = props.month - 1;
+  const month = props.month-1;
   let date = 1;
   let maxDate = (new Date(year, month + 1, 0)).getDate();
 
