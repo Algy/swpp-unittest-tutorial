@@ -39,6 +39,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
                 return (
                   <div
                     key={todo.id}
+                    id='todoTitle_id'
                     className={`todoTitle ${todo.done ? 'done':'notdone'}`}
                     onClick={() => clickDone(todo.id)}>
                     {todo.title}
@@ -64,7 +65,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table id="calender_id" striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
