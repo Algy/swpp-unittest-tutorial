@@ -22,6 +22,11 @@ describe('<Todo />', () => {
     const wrapper = component.find('.done');
     expect(wrapper.text()).toEqual('TEST_TITLE');
   });
+  it('should render due', () => {
+    const component = shallow(<Todo year={1} month={1} date={1}/>);
+    const wrapper = component.find('.due');
+    expect(wrapper.text()).toEqual(' due: 1.2.1 ');
+  });
 
   it('should handle clicks', () => {
     const mockClickDone = jest.fn();
