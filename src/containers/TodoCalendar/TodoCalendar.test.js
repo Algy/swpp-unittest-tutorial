@@ -9,6 +9,22 @@ import { getMockStore } from '../../test-utils/mocks';
 import { history } from '../../store/store';
 import * as actionCreators from '../../store/actions/todo';
 
+jest.mock('../../components/Calendar/Calendar.js', () => {
+  return jest.fn(props => {
+    return (
+      <div className="spyCalendar">
+        <div className="title" onClick={props.clickDetail}>
+          {props.title}
+        </div>
+        <button className="done-calendar" onClick={props.clickDone} />
+      </div>);
+  });
+});
+
+
+
+
+
 const stubInitialState = {
   todos: [
     {id: 1, title: 'TODO_TEST_TITLE_1', done: false},
@@ -87,5 +103,15 @@ describe('<TodoCalendar />', () => {
         const todoCalendarInstance = component.find(TodoCalendar.WrappedComponent).instance();
         expect(todoCalendarInstance.state.year).toBe(2018);
     });
- 
+    
+    it('toggle todo should be called', () => {
+
+        const spyToggleTodo = jest.spyOn(actionCreators, 'toggleTodo')
+            .mockImplementation(id => { return dispatch => {}; });
+        const component = mount(todoCalendar);
+        const wrapper = component.find('.done-calendar');
+        wrapper.simulate('click');
+        expect(spyToggleTodo).toBeCalledTimes(1);
+    });
+    
 })
