@@ -59,7 +59,7 @@ describe('ActionCreators', () => {
 
     store.dispatch(actionCreators.getTodos()).then(() => {
       const newState = store.getState();
-      expect(newState.td.todos).toBe(stubTodoList);
+      expect(newState.td.todos).toEqual(stubTodoList);
       expect(spy).toHaveBeenCalledTimes(1);
       done();
     });
@@ -86,18 +86,28 @@ describe('ActionCreators', () => {
   });
 
   it(`'postTodo' should post todo correctly`, (done) => {
+    let stubPostTodo = {
+      id: 0,
+      title: 'title 1',
+      content: 'content 1',
+      dueDate: {
+        year: 0,
+        month: 0,
+        day: 0
+      }
+    };
     const spy = jest.spyOn(axios, 'post')
       .mockImplementation((url, td) => {
         return new Promise((resolve, reject) => {
           const result = {
             status: 200,
-            data: stubTodo
+            data: stubPostTodo
           };
           resolve(result);
         });
       })
 
-    store.dispatch(actionCreators.postTodo(stubTodo)).then(() => {
+    store.dispatch(actionCreators.postTodo(stubPostTodo)).then(() => {
       expect(spy).toHaveBeenCalledTimes(1);
       done();
     });
