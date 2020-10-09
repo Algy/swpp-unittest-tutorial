@@ -49,7 +49,7 @@ describe('<TodoList />', () => {
     );
     spyGetTodos = jest.spyOn(actionCreators, 'getTodos')
       .mockImplementation(() => { return dispatch => {}; });
-  })
+  });
 
   it('should render Todos', () => {
     const component = mount(todoList);
