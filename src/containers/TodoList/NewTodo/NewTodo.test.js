@@ -22,6 +22,7 @@ const mockStore = getMockStore(stubInitialState);
 
 describe('<NewTodo />', () => {
   let newTodo;
+  let now;
 
   beforeEach(() => {
     newTodo = (
@@ -33,6 +34,7 @@ describe('<NewTodo />', () => {
         </ConnectedRouter>
       </Provider>
     );
+    now = new Date();
   })
 
   it('should render NewTodo', () => {
@@ -53,21 +55,67 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('#title');
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
     expect(newTodoInstance.state.content).toEqual('');
+
+    expect(newTodoInstance.state.dueDate.year).toEqual(now.getFullYear());
+    expect(newTodoInstance.state.dueDate.month).toEqual(now.getMonth()+1);
+    expect(newTodoInstance.state.dueDate.date).toEqual(now.getDate());
   });
 
   it(`should set state properly on content input`, () => {
     const content = 'TEST_CONTENT'
     const component = mount(newTodo);
-    const wrapper = component.find('textarea');
+    const wrapper = component.find('#content');
     wrapper.simulate('change', { target: { value: content } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual('');
     expect(newTodoInstance.state.content).toEqual(content);
+    expect(newTodoInstance.state.dueDate.year).toEqual(now.getFullYear());
+    expect(newTodoInstance.state.dueDate.month).toEqual(now.getMonth()+1);
+    expect(newTodoInstance.state.dueDate.date).toEqual(now.getDate());
+  });
+
+  it(`should set state properly on year input`, () => {
+    const year = 'TEST_YEAR'
+    const component = mount(newTodo);
+    const wrapper = component.find('#year');
+    wrapper.simulate('change', { target: { value: year } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(year);
+    expect(newTodoInstance.state.dueDate.month).toEqual(now.getMonth()+1);
+    expect(newTodoInstance.state.dueDate.date).toEqual(now.getDate());
+  });
+
+  it(`should set state properly on month input`, () => {
+    const month = 'TEST_MONTH'
+    const component = mount(newTodo);
+    const wrapper = component.find('#month');
+    wrapper.simulate('change', { target: { value: month } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(now.getFullYear());
+    expect(newTodoInstance.state.dueDate.month).toEqual(month);
+    expect(newTodoInstance.state.dueDate.date).toEqual(now.getDate());
+  });
+
+  it(`should set state properly on date input`, () => {
+    const date = 'TEST_DATE'
+    const component = mount(newTodo);
+    const wrapper = component.find('#date');
+    wrapper.simulate('change', { target: { value: date } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(now.getFullYear());
+    expect(newTodoInstance.state.dueDate.month).toEqual(now.getMonth()+1);
+    expect(newTodoInstance.state.dueDate.date).toEqual(date);
   });
 });
 
