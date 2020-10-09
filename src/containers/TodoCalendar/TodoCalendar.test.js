@@ -110,8 +110,8 @@ describe('<TodoCalendar />', () => {
 
     it(`should handle click properly`, () => {
       const component = mount(todoCalendar);
-      const wrapper = component.find("button");
-      expect(wrapper.length).toBe(3);
+      const wrapper = component.find(".month");
+      expect(wrapper.length).toBe(2);
 
       const todoCalendarInstnace = component.find(TodoCalendar.WrappedComponent).instance();
 
