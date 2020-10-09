@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react';
 
 import './Calendar.css';
+
 
 const CALENDAR_HEADER = (
   <Table.Header>
