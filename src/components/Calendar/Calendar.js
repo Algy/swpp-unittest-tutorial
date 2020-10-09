@@ -64,7 +64,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table className="Calendar" striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
@@ -76,11 +76,10 @@ const Calendar = (props) => {
   const month = props.month - 1;
   let date = 1;
   let maxDate = (new Date(year, month + 1, 0)).getDate();
-
+  
   for (let date=1; date<=maxDate; date++) {
     dates.push(new Date(year, month, date));
   }
-
   return renderCalendar(dates, props.todos, props.clickDone);
 }
 
