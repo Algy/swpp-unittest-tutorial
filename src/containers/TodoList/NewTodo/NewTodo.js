@@ -41,32 +41,32 @@ class NewTodo extends Component {
         <input
           type="text"
           value={this.state.title}
-          onChange={(event) => this.setState({ title: event.target.value })}
+          onChange={(event) => this.setState({...this.state, title: event.target.value })}
         ></input>
         <label>Content</label>
         <textarea rows="4" type="text" value={this.state.content}
-          onChange={(event) => this.setState({ content: event.target.value })}
+          onChange={(event) => this.setState({...this.state, content: event.target.value })}
         >
         </textarea>
         <label>Due Date</label>
         year <input
           type="text"
           value={this.state.dueDate.year}
-          onChange={(event) => this.setState({
+          onChange={(event) => this.setState({...this.state,
             dueDate: {...this.state.dueDate, year: event.target.value }
           })}
         ></input>
         month <input
           type="text"
           value={this.state.dueDate.month}
-          onChange={(event) => this.setState({
+          onChange={(event) => this.setState({...this.state,
             dueDate: {...this.state.dueDate, month: event.target.value }
           })}
         ></input>
         date <input
           type="text"
           value={this.state.dueDate.date}
-          onChange={(event) => this.setState({
+          onChange={(event) => this.setState({...this.state,
             dueDate: {...this.state.dueDate, date: event.target.value }
           })}
         ></input>
