@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5f2b714-1755-4228-834d-f2ec233720b8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Calendar/Calender.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/TodoCalendar/TodoCalendar.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todo/Todo.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todo/Todo.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/TodoCalendar/TodoCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoCalendar/TodoCalendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/TodoList/NewTodo/NewTodo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoList/NewTodo/NewTodo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/TodoList/NewTodo/NewTodo.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TodoList/NewTodo/NewTodo.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/todo.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/todo.test.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iain8J15RbwhubEOZeE5SNluMq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RunManager" selected="Jest.&lt;Calender/&gt;">
+    <configuration name="&lt;Calender/&gt;" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/Calendar/Calender.test.js" />
+      <test-names>
+        <test-name value="&lt;Calender/&gt;" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="&lt;Calender/&gt;.should render without errors" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/Calendar/Calender.test.js" />
+      <test-names>
+        <test-name value="&lt;Calender/&gt;" />
+        <test-name value="should render without errors" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.&lt;Calender/&gt;" />
+        <item itemvalue="Jest.&lt;Calender/&gt;.should render without errors" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5f2b714-1755-4228-834d-f2ec233720b8" name="Default Changelist" comment="" />
+      <created>1602152267955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602152267955</updated>
+      <workItem from="1602152269992" duration="3170000" />
+      <workItem from="1602155446838" duration="4820000" />
+      <workItem from="1602206921552" duration="5115000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1098" y="197" key="FileChooserDialogImpl" timestamp="1602155443659">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="1098" y="197" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602155443659" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1602160276579">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602160276579" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1602160276579">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602160276579" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1602160276578">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602160276578" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1602160276579">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602160276579" />
+  </component>
+</project>
