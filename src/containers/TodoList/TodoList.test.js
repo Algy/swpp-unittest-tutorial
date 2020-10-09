@@ -9,6 +9,17 @@ import { getMockStore } from '../../test-utils/mocks';
 import { history } from '../../store/store';
 import * as actionCreators from '../../store/actions/todo';
 
+const stubInitialState = {
+  todos: [
+    {id: 1, title: 'TODO_TEST_TITLE_1', done: false},
+    {id: 2, title: 'TODO_TEST_TITLE_2', done: false},
+    {id: 3, title: 'TODO_TEST_TITLE_3', done: false},
+  ],
+  selectedTodo: null,
+};
+
+const mockStore = getMockStore(stubInitialState);
+
 jest.mock('../../components/Todo/Todo', () => {
   return jest.fn(props => {
     return (
@@ -21,17 +32,6 @@ jest.mock('../../components/Todo/Todo', () => {
       </div>);
   });
 });
-
-const stubInitialState = {
-  todos: [
-    {id: 1, title: 'TODO_TEST_TITLE_1', done: false},
-    {id: 2, title: 'TODO_TEST_TITLE_2', done: false},
-    {id: 3, title: 'TODO_TEST_TITLE_3', done: false},
-  ],
-  selectedTodo: null,
-};
-
-const mockStore = getMockStore(stubInitialState);
 
 describe('<TodoList />', () => {
   let todoList, spyGetTodos;

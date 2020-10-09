@@ -33,12 +33,22 @@ export const postTodo_ = (td) => {
     id: td.id,
     title: td.title,
     content: td.content,
+    dueDate: {
+      year: td.year,
+      month: td.month,
+      date: td.date,
+    }
   };
 };
 
 export const postTodo = (td) => {
+  console.log(td)
+  const todo = {
+    ...td,
+    
+  }
   return (dispatch) => {
-    return axios.post('/api/todo/', td)
+    return axios.post('/api/todo/', todo)
       .then(res => {
         dispatch(postTodo_(res.data));
         dispatch(push('/todos/'));

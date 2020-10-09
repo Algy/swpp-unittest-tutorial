@@ -4,6 +4,7 @@ const initialState = {
   todos: [
   ],
   selectedTodo: null,
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +14,9 @@ const reducer = (state = initialState, action) => {
         id: action.id,
         title: action.title,
         content: action.content,
+        year: action.year,
+        month: action.month,
+        date: action.date,
         done: action.done,
       };
       return { ...state, todos: state.todos.concat(newTodo) };
