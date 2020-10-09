@@ -93,7 +93,7 @@ describe('<TodoCalendar/>', () => {
             <Provider store={mockStore}>
                 <ConnectedRouter history={history}>
                 <Switch>
-                    <Route path='/calendar' exact component={TodoCalendar}/>
+                    <Route path='/calendar' exact render={() => <TodoCalendar/>}/>
                     <Redirect exact from='/' to='calendar' />
                 </Switch>
                 </ConnectedRouter>
@@ -114,19 +114,36 @@ describe('<TodoCalendar/>', () => {
 
     it('should call handleClickPrev', () => {
         const component = mount(todoCalendar);
+        let newInstance = component.find(TodoCalendar.WrappedComponent).instance()
+        newInstance.setState({month: 1});
         const wrapper = component.find('.header').find('button').at(0);
         wrapper.simulate('click');
-        const newInstance = component.find(TodoCalendar.WrappedComponent).instance()
-        expect(newInstance.state.year).toEqual(2019);
-        expect(newInstance.state.month).toEqual(9);
+        expect(newInstance.state.year).toEqual(2018);
+        expect(newInstance.state.month).toEqual(12);
+        wrapper.simulate('click');
+        expect(newInstance.state.year).toEqual(2018);
+        expect(newInstance.state.month).toEqual(11);
     })
     it('should call handleClickNext', () => {
         const component = mount(todoCalendar);
+        let newInstance = component.find(TodoCalendar.WrappedComponent).instance()
+        newInstance.setState({month: 12});
         const wrapper = component.find('.header').find('button').at(1);
         wrapper.simulate('click');
-        const newInstance = component.find(TodoCalendar.WrappedComponent).instance()
-        expect(newInstance.state.year).toEqual(2019);
-        expect(newInstance.state.month).toEqual(11);
+        expect(newInstance.state.year).toEqual(2020);
+        expect(newInstance.state.month).toEqual(1);
+        wrapper.simulate('click');
+        expect(newInstance.state.year).toEqual(2020);
+        expect(newInstance.state.month).toEqual(2);
+    })
+
+    it('should call clickDone', () => {
+      const spyToggleTodo = jest.spyOn(actionCreators, 'toggleTodo')
+        .mockImplementation(id => {return dispatch => {};});
+      const component = mount(todoCalendar);
+      const wrapper = component.find('.spyCalendar .todoTitle').at(0);
+      wrapper.simulate('click');
+      expect(spyToggleTodo).toBeCalledTimes(1);
     })
 
 })
