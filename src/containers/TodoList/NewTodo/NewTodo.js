@@ -23,7 +23,7 @@ class NewTodo extends Component {
       ...this.state,
       dueDate: {
         year: now.getFullYear(),
-        month: now.getMonth() + 1,
+        month: now.getMonth(),
         date: now.getDate(),
       },
     })
@@ -42,6 +42,7 @@ class NewTodo extends Component {
           type="text"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
+          className="title"
         ></input>
         <label>Content</label>
         <textarea rows="4" type="text" value={this.state.content}
@@ -55,6 +56,7 @@ class NewTodo extends Component {
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, year: event.target.value }
           })}
+          className="year"
         ></input>
         month <input
           type="text"
@@ -62,6 +64,7 @@ class NewTodo extends Component {
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, month: event.target.value }
           })}
+          className="month"
         ></input>
         date <input
           type="text"
@@ -69,6 +72,7 @@ class NewTodo extends Component {
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, date: event.target.value }
           })}
+          className="date"
         ></input>
         <button onClick={() => this.postTodoHandler()}>Submit</button>
       </div>

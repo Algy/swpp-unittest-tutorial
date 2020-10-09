@@ -46,7 +46,6 @@ export const postTodo = (td) => {
     ...td,
     dueDate: {
       ...td.dueDate,
-      month: td.dueDate.month - 1,
     },
   }
   return (dispatch) => {
