@@ -3,21 +3,9 @@ import { mount, shallow } from 'enzyme';
 import Calendar from './Calendar';
 
 let todoList = [
-    {content: "take swpp class",    date: 1,    done: true,    id: 8,    month: 1,    title: "SWPP",    year: 2019},
-    {content: "Watch Movie",
-    date: 1,
-    done: false,
-    id: 9,
-    month: 1,
-    title: "Movie",
-    year: 2019},
-    {content: "eat dinner",
-    date: 1,
-    done: false,
-    id: 12,
-    month: 1,
-    title: "Dinner",
-    year: 2019}
+    {content: "take swpp class", date: 1, done: true, id: 8, month: 1, title: "SWPP", year: 2019},
+    {content: "Watch Movie", date: 1, done: false, id: 9, month: 1, title: "Movie", year: 2019},
+    {content: "eat dinner", date: 1, done: false, id: 12, month: 1, title: "Dinner", year: 2019}
 ]
 
 describe('Calendar', () => {

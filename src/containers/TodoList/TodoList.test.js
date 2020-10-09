@@ -74,6 +74,7 @@ describe('<TodoList />', () => {
     const spyDeleteTodo = jest.spyOn(actionCreators, 'deleteTodo')
       .mockImplementation(id => { return dispatch => {}; });
     const component = mount(todoList);
+    console.log(component.debug())
     const connectedRouter = component.find(ConnectedRouter);
     const wrapper = component.find('.spyTodo .deleteButton').at(0);
     wrapper.simulate('click');
