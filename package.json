@@ -46,7 +46,9 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/index.js",
-      "!src/serviceWorker.js"
+      "!src/serviceWorker.js",
+      "!src/setupTest.js",
+      "!src/store/actions/index.js"
     ]
   }
 }
