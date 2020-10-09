@@ -34,7 +34,6 @@ class TodoCalendar extends Component {
   };
 
   render() {
-    console.log(this.props.storedTodos);
     return (
       <div>
         <div className="link">
@@ -43,9 +42,15 @@ class TodoCalendar extends Component {
           </NavLink>
         </div>
         <div className="header">
-          <button onClick={this.handleClickPrev}> prev month </button>
+          <button id="prev-button" onClick={this.handleClickPrev}>
+            {" "}
+            prev month{" "}
+          </button>
           {this.state.year}.{this.state.month}
-          <button onClick={this.handleClickNext}> next month </button>
+          <button id="next-button" onClick={this.handleClickNext}>
+            {" "}
+            next month{" "}
+          </button>
         </div>
         <Calendar
           year={this.state.year}
