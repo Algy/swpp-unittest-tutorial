@@ -38,11 +38,11 @@ class TodoCalendar extends Component {
       <div>
         <div className="link"><NavLink to='/todos' exact>See TodoList</NavLink></div>
         <div className="header">
-          <button onClick={this.handleClickPrev}> prev month </button>
+          <button className="buttonClickPrev" onClick={this.handleClickPrev}> prev month </button>
           {this.state.year}.{this.state.month}
-          <button onClick={this.handleClickNext}> next month </button>
+          <button className="buttonClickNext" onClick={this.handleClickNext}> next month </button>
         </div>
-        <Calendar
+        <Calendar className="Calendar"
           year={this.state.year}
           month={this.state.month}
           todos={this.props.storedTodos}
