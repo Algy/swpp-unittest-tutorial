@@ -115,11 +115,17 @@ describe('<TodoCalendar />', () => {
 
       const todoCalendarInstnace = component.find(TodoCalendar.WrappedComponent).instance();
 
-      wrapper.at(0).simulate('click');
-      expect(todoCalendarInstnace.state.month).toBe(9);
-
-      wrapper.at(1).simulate('click');
       expect(todoCalendarInstnace.state.month).toBe(10);
+      wrapper.at(1).simulate('click');
+      expect(todoCalendarInstnace.state.month).toBe(11);
+      wrapper.at(1).simulate('click');
+      expect(todoCalendarInstnace.state.month).toBe(12);
+      wrapper.at(1).simulate('click');
+      expect(todoCalendarInstnace.state.month).toBe(1);
+      wrapper.at(0).simulate('click');
+      expect(todoCalendarInstnace.state.month).toBe(12);
+      wrapper.at(0).simulate('click');
+      expect(todoCalendarInstnace.state.month).toBe(11);
     });
 
     it(`should handle clickDone`, () => {
