@@ -54,7 +54,7 @@ describe('<NewTodo />', () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
     const wrapper = component.find('input');
-    wrapper.simulate('change', { target: { value: title } });
+    wrapper.at(0).simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
     expect(newTodoInstance.state.content).toEqual('');
@@ -69,6 +69,41 @@ describe('<NewTodo />', () => {
     expect(newTodoInstance.state.title).toEqual('');
     expect(newTodoInstance.state.content).toEqual(content);
   });
+
+  it(`should set default dueDate to today`, () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+
+    const component = mount(newTodo);
+    expect(component.find("#year").length).toBe(1);
+    expect(component.find("#month").length).toBe(1);
+    expect(component.find("#date").length).toBe(1);
+  });
+  it(`should update year properly`, () => {
+    const component = mount(newTodo);
+    const wrapper = component.find("#year").at(0);
+    wrapper.simulate("change", { target: { value: "2000" }})
+    const newTodoInstnace = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstnace.state.dueDate.year).toBe("2000");
+  })
+  it(`should update month properly`, () => {
+    const component = mount(newTodo);
+    const wrapper = component.find("#month").at(0);
+    wrapper.simulate("change", { target: { value: "12" }})
+    const newTodoInstnace = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstnace.state.dueDate.month).toBe("12");
+  })
+
+  it(`should update date properly`, () => {
+    const component = mount(newTodo);
+    const wrapper = component.find("#date").at(0);
+    wrapper.simulate("change", { target: { value: "25" }})
+    const newTodoInstnace = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstnace.state.dueDate.date).toBe("25");
+  })
+
 });
 
 
