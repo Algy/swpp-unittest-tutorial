@@ -4,7 +4,7 @@ import { Table } from 'semantic-ui-react'
 import './Calendar.css';
 
 const CALENDAR_HEADER = (
-  <Table.Header>
+  <Table.Header id='head'>
     <Table.Row>
       <Table.HeaderCell className="sunday">Sun</Table.HeaderCell>
       <Table.HeaderCell>Mon</Table.HeaderCell>
@@ -21,7 +21,6 @@ const renderCalenderBody = (dates, todos, clickDone) => {
   let i = 0;
   const rows = [];
   for (let week=0; week<5; week++){
-    let day = 0; // Sunday
 
     let row = [];
     for (let day=0; day<7; day++) {
@@ -57,14 +56,14 @@ const renderCalenderBody = (dates, todos, clickDone) => {
   }
 
   return (
-    <Table.Body>
+    <Table.Body id='body'>
       {rows.map((row, i) => (<Table.Row key={i}>{row}</Table.Row>))}
     </Table.Body>
   );
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table id = 'cal' striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
@@ -74,7 +73,6 @@ const Calendar = (props) => {
   const dates = [];
   const year = props.year;
   const month = props.month - 1;
-  let date = 1;
   let maxDate = (new Date(year, month + 1, 0)).getDate();
 
   for (let date=1; date<=maxDate; date++) {
