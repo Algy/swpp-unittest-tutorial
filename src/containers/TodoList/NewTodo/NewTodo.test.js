@@ -11,9 +11,21 @@ import * as actionCreators from '../../../store/actions/todo';
 
 const stubInitialState = {
   todos: [
-    {id: 1, title: 'TODO_TEST_TITLE_1', done: false},
-    {id: 2, title: 'TODO_TEST_TITLE_2', done: false},
-    {id: 3, title: 'TODO_TEST_TITLE_3', done: false},
+    {id: 1, title: 'TODO_TEST_TITLE_1', done: false, dueDate: {
+      year: 2020,
+      month: 10,
+      date: 9,
+    }},
+    {id: 2, title: 'TODO_TEST_TITLE_2', done: false, dueDate: {
+      year: 2020,
+      month: 10,
+      date: 9,
+    }},
+    {id: 3, title: 'TODO_TEST_TITLE_3', done: false, dueDate: {
+      year: 2020,
+      month: 10,
+      date: 9,
+    }},
   ],
   selectedTodo: null,
 };
@@ -53,10 +65,40 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('.title-input');
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on year input`, () => {
+    const year = 'TEST_YEAR'
+    const component = mount(newTodo);
+    const wrapper = component.find('.year-input');
+    wrapper.simulate('change', { target: { value: year } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.year).toEqual(year);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on month input`, () => {
+    const month = 'TEST_MONTH'
+    const component = mount(newTodo);
+    const wrapper = component.find('.month-input');
+    wrapper.simulate('change', { target: { value: month } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.month).toEqual(month);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on date input`, () => {
+    const date = 'TEST_DATE'
+    const component = mount(newTodo);
+    const wrapper = component.find('.date-input');
+    wrapper.simulate('change', { target: { value: date } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.date).toEqual(date);
     expect(newTodoInstance.state.content).toEqual('');
   });
 
