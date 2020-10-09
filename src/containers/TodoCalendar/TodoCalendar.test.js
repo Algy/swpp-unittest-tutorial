@@ -10,6 +10,16 @@ import { history } from '../../store/store';
 import * as actionCreators from '../../store/actions/todo';
 import { Item } from 'semantic-ui-react';
 
+jest.mock('../../components/Calendar/Calendar', () => {
+  return jest.fn(props => {
+    return (
+      <div className="spyCalendar">
+        <button className="clickDone" onClick={props.clickDone} />
+      </div>
+    )
+  })
+})
+
 jest.mock('../../components/Todo/Todo', () => {
     return jest.fn(props => {
       return (
@@ -101,7 +111,7 @@ describe('<TodoCalendar />', () => {
     it(`should handle click properly`, () => {
       const component = mount(todoCalendar);
       const wrapper = component.find("button");
-      expect(wrapper.length).toBe(2);
+      expect(wrapper.length).toBe(3);
 
       const todoCalendarInstnace = component.find(TodoCalendar.WrappedComponent).instance();
 
@@ -111,4 +121,13 @@ describe('<TodoCalendar />', () => {
       wrapper.at(1).simulate('click');
       expect(todoCalendarInstnace.state.month).toBe(10);
     });
+
+    it(`should handle clickDone`, () => {
+      const spy = jest.spyOn(actionCreators, 'toggleTodo')
+        .mockImplementation((id) => {return dispatch => {}});
+      const component = mount(todoCalendar);
+      const wrapper = component.find('.clickDone').at(0);
+      wrapper.simulate('click');
+      expect(spy).toBeCalledTimes(1);
+    })
 });
