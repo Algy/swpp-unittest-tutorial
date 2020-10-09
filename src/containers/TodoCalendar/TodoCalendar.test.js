@@ -10,6 +10,39 @@ import { history } from '../../store/store';
 import * as actionCreators from '../../store/actions/todo';
 import { Item } from 'semantic-ui-react';
 
+jest.mock('../../components/Calendar/Calendar', () => {
+    return jest.fn(props => {
+        let todos = [];
+        for(let i = 0; i < props.todos.length ; i++) {
+            let todo = (
+                <div id={props.todos[i].id}>
+                    {props.todos[i].title}
+                    {props.todos[i].content}
+                    {props.todos[i].year}
+                    {props.todos[i].month}
+                    {props.todos[i].date}
+                    {props.todos[i].done}
+                </div>
+            )
+        }
+        return (
+            <div className='spyCalendar'>
+                <div className='spyYear'>
+                    {props.year}
+                </div>
+                <div className='spyMonth'>
+                    {props.month}
+                </div>
+                <button className='spyClickDoneButton'
+                    onClick={props.clickDone}/>
+                <div className='spyTodos'>
+                    {todos}
+                </div>
+            </div>
+        )
+    })
+})
+
 const stubInitialState = {
     todos: [
         {
@@ -64,7 +97,9 @@ const stubInitialState = {
 
     it('should render TodoCalendar', () => {
         const component = mount(todoCalendar);
-        const wrapper = component.find('TodoCalendar');
+        let wrapper = component.find('TodoCalendar');
+        expect(wrapper.length).toBe(1);
+        wrapper = component.find(".spyCalendar");
         expect(wrapper.length).toBe(1);
     });
 
@@ -99,9 +134,9 @@ const stubInitialState = {
         const spyToggleTodo = jest.spyOn(actionCreators, 'toggleTodo')
             .mockImplementation(id => { return dispatch => {}; });
         const component = mount(todoCalendar);
-        const wrapper = component.find('.todoTitle');
-        expect(wrapper.length).toBeGreaterThan(0);
-        wrapper.at(0).simulate('click');
+        const wrapper = component.find('.spyClickDoneButton');
+        wrapper.simulate('click');
+        expect(wrapper.length).toBe(1);
         expect(spyToggleTodo).toHaveBeenCalled();
     })
 });

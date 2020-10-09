@@ -43,20 +43,15 @@ const stubInitialState = {
     selectedTodo: null,
 };
 
-const mockStore = getMockStore(stubInitialState);
-
 describe('<Calendar />', () => {
-    afterEach(() => { jest.clearAllMocks() });
+    let mockClickDone;
+    let component;
 
-    it('should render Calendar', () => {
-        const component = shallow(<Calendar/>);
-        const wrapper = component.find('Table');
-        expect(wrapper.length).toBe(1);
-    });
+    // afterEach(() => { jest.clearAllMocks() });
 
-    it('should call clickDone', () => {
-        const mockClickDone = jest.fn(id => { return null });
-        const component = shallow(
+    beforeEach(() => {
+        mockClickDone = jest.fn(id => { return null });
+        component = shallow(
                 <Calendar 
                     year={2020}
                     month={10}
@@ -64,25 +59,25 @@ describe('<Calendar />', () => {
                     clickDone={mockClickDone}
                 />
         );
+    })
+
+    it('should render Calendar', () => {
+        const wrapper = component.find('Table');
+        expect(wrapper.length).toBe(1);
+    });
+
+    it('should call clickDone', () => {
         const wrapper = component.find('.todoTitle');
         expect(wrapper.length).toBe(2);
         wrapper.at(0).simulate('click');
-        expect(mockClickDone).toHaveBeenCalled();
+        expect(mockClickDone).toHaveBeenCalledTimes(1);
         expect(mockClickDone).toHaveBeenCalledWith(2);
         wrapper.at(1).simulate('click');
         expect(mockClickDone).toHaveBeenCalledWith(3);
     });
 
     it('should toggle done', () => {
-        const mockClickDone = jest.fn(id => {return null });
-        const component = shallow(
-            <Calendar 
-                year={2020}
-                month={10}
-                todos={stubInitialState.todos}
-                clickDone={mockClickDone}
-            />
-        );
+        expect(mockClickDone).toHaveBeenCalledTimes(0);
         const wrapper = component.find('.todoTitle');
         const wrapper2 = component.find('.notdone');
         const wrapper3 = component.find('.done');

@@ -20,7 +20,7 @@ describe('ActionCreators', () => {
     jest.clearAllMocks();
   })
   // Implementation using `jest.fn` API
-  /*
+  // /*
   it(`'getTodos' should fetch todos correctly`, (done) => {
     const stubTodoList = [{
       id: 0,
@@ -38,7 +38,7 @@ describe('ActionCreators', () => {
         resolve(result);
       })
     });
-
+    expect(store.getState().td.todos).toEqual([]);
     store.dispatch(actionCreators.getTodos()).then(() => {
       const newState = store.getState();
       expect(newState.td.todos).toBe(stubTodoList);
@@ -46,7 +46,7 @@ describe('ActionCreators', () => {
       done();
     });
   });
-  */
+  // */
   // Implementation using `spyOn` API
   it(`'getTodos' should fetch todos correctly`, (done) => {
     const stubTodoList = [stubTodo];
@@ -82,6 +82,7 @@ describe('ActionCreators', () => {
         });
       })
 
+    
     store.dispatch(actionCreators.getTodo()).then(() => {
       const newState = store.getState();
       expect(newState.td.selectedTodo).toBe(stubTodo);

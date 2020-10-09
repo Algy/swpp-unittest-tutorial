@@ -25,9 +25,17 @@ describe('<Todo />', () => {
 
   it('should handle clicks', () => {
     const mockClickDone = jest.fn();
-    const component = shallow(<Todo clickDone={mockClickDone} />);
+    const component = shallow(<Todo done={false} clickDone={mockClickDone} />);
     const wrapper = component.find('.doneButton');
     wrapper.simulate('click');
     expect(mockClickDone).toHaveBeenCalledTimes(1);
+  });
+
+  it('should handle clickDetail', () => {
+    const mockClickDetail = jest.fn();
+    const component = shallow(<Todo clickDetail={mockClickDetail} />);
+    const wrapper = component.find('.text');
+    wrapper.simulate('click');
+    expect(mockClickDetail).toHaveBeenCalledTimes(1);
   });
 });
