@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 import './NewTodo.css';
 
 import { connect } from 'react-redux';
@@ -15,7 +14,7 @@ class NewTodo extends Component {
       month: '',
       date: '',
     },
-  }
+  };
 
   componentDidMount() {
     const now = new Date();
@@ -26,12 +25,16 @@ class NewTodo extends Component {
         month: now.getMonth() + 1,
         date: now.getDate(),
       },
-    })
+    });
   }
 
   postTodoHandler = () => {
-    this.props.onStoreTodo(this.state.title, this.state.content, this.state.dueDate);
-  }
+    this.props.onStoreTodo(
+      this.state.title,
+      this.state.content,
+      this.state.dueDate
+    );
+  };
 
   render() {
     return (
@@ -40,35 +43,50 @@ class NewTodo extends Component {
         <label>Title</label>
         <input
           type="text"
+          className="title"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
         ></input>
         <label>Content</label>
-        <textarea rows="4" type="text" value={this.state.content}
+        <textarea
+          rows="4"
+          type="text"
+          value={this.state.content}
           onChange={(event) => this.setState({ content: event.target.value })}
-        >
-        </textarea>
+        ></textarea>
         <label>Due Date</label>
-        year <input
+        year{' '}
+        <input
           type="text"
+          className="dueYear"
           value={this.state.dueDate.year}
-          onChange={(event) => this.setState({
-            dueDate: {...this.state.dueDate, year: event.target.value }
-          })}
+          onChange={(event) =>
+            this.setState({
+              dueDate: { ...this.state.dueDate, year: event.target.value },
+            })
+          }
         ></input>
-        month <input
+        month{' '}
+        <input
           type="text"
+          className="dueMonth"
           value={this.state.dueDate.month}
-          onChange={(event) => this.setState({
-            dueDate: {...this.state.dueDate, month: event.target.value }
-          })}
+          onChange={(event) =>
+            this.setState({
+              dueDate: { ...this.state.dueDate, month: event.target.value },
+            })
+          }
         ></input>
-        date <input
+        date{' '}
+        <input
           type="text"
+          className="dueDate"
           value={this.state.dueDate.date}
-          onChange={(event) => this.setState({
-            dueDate: {...this.state.dueDate, date: event.target.value }
-          })}
+          onChange={(event) =>
+            this.setState({
+              dueDate: { ...this.state.dueDate, date: event.target.value },
+            })
+          }
         ></input>
         <button onClick={() => this.postTodoHandler()}>Submit</button>
       </div>
@@ -76,11 +94,17 @@ class NewTodo extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onStoreTodo: (title, content, dueDate) =>
-      dispatch(actionCreators.postTodo({ title: title, content: content, dueDate: dueDate})),
-  }
+      dispatch(
+        actionCreators.postTodo({
+          title: title,
+          content: content,
+          dueDate: dueDate,
+        })
+      ),
+  };
 };
 
 export default connect(null, mapDispatchToProps)(NewTodo);
