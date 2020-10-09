@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewTodo /> should render TodoCalendar 1`] = `ReactWrapper {}`;
+
+exports[`<NewTodo /> should render TodoCalendar 2`] = `ReactWrapper {}`;
