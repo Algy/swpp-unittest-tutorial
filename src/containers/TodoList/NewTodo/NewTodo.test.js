@@ -54,10 +54,14 @@ describe('<NewTodo />', () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
     const wrapper = component.find('input');
-    wrapper.simulate('change', { target: { value: title } });
+    const wrapperTitle = wrapper.find('.title')
+    wrapperTitle.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
     expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(2020)
+    expect(newTodoInstance.state.dueDate.month).toEqual(10)
+    expect(newTodoInstance.state.dueDate.date).toEqual(9)
   });
 
   it(`should set state properly on content input`, () => {
@@ -68,7 +72,69 @@ describe('<NewTodo />', () => {
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual('');
     expect(newTodoInstance.state.content).toEqual(content);
+    expect(newTodoInstance.state.dueDate.year).toEqual(2020);
+    expect(newTodoInstance.state.dueDate.month).toEqual(10);
+    expect(newTodoInstance.state.dueDate.date).toEqual(9);
   });
+
+  it(`should set state properly on year input`, () => {
+    const year = 'TEST_YEAR'
+    const component = mount(newTodo);
+    const wrapper = component.find('input');
+    const wrapperYear = wrapper.find('.year');
+    wrapperYear.simulate('change', { target: { value: year } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(year);
+    expect(newTodoInstance.state.dueDate.month).toEqual(10);
+    expect(newTodoInstance.state.dueDate.date).toEqual(9);
+    
+  });
+
+  it(`should set state properly on month input`, () => {
+    const month = 'TEST_MONTH'
+    const component = mount(newTodo);
+    const wrapper = component.find('input');
+    const wrapperMonth = wrapper.find('.month');
+    wrapperMonth.simulate('change', { target: { value: month } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(2020);
+    expect(newTodoInstance.state.dueDate.month).toEqual(month);
+    expect(newTodoInstance.state.dueDate.date).toEqual(9);
+  });
+
+  it(`should set state properly on date input`, () => {
+    const date = 'TEST_DATE'
+    const component = mount(newTodo);
+    const wrapper = component.find('input');
+    const wrapperDate = wrapper.find('.date');
+    wrapperDate.simulate('change', { target: { value: date } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(2020);
+    expect(newTodoInstance.state.dueDate.month).toEqual(10);
+    expect(newTodoInstance.state.dueDate.date).toEqual(date);
+  });
+
+
+/*
+  it(`should set state properly on title input`, () => {
+    const title = 'TEST_TITLE'
+    const component = mount(newTodo);
+    const wrapper = component.find('input');
+    wrapper.simulate('change', { target: { value: title } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual(title);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+*/
+
+
 });
 
 
