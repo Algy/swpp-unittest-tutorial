@@ -53,10 +53,40 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('input').at(0);
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on due year input`, () => {
+    const dueYear = 'TEST_DUE_YEAR'
+    const component = mount(newTodo);
+    const wrapper = component.find('input').at(1);
+    wrapper.simulate('change', { target: { value: dueYear } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.year).toEqual(dueYear);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on due month input`, () => {
+    const dueMonth = 'TEST_DUE_MONTH'
+    const component = mount(newTodo);
+    const wrapper = component.find('input').at(2);
+    wrapper.simulate('change', { target: { value: dueMonth } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.month).toEqual(dueMonth);
+    expect(newTodoInstance.state.content).toEqual('');
+  });
+
+  it(`should set state properly on due date input`, () => {
+    const dueDate = 'TEST_DUE_DATE'
+    const component = mount(newTodo);
+    const wrapper = component.find('input').at(3);
+    wrapper.simulate('change', { target: { value: dueDate } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.dueDate.date).toEqual(dueDate);
     expect(newTodoInstance.state.content).toEqual('');
   });
 
