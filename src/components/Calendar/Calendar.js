@@ -22,7 +22,6 @@ const renderCalenderBody = (dates, todos, clickDone) => {
   const rows = [];
   for (let week=0; week<5; week++){
     let day = 0; // Sunday
-
     let row = [];
     for (let day=0; day<7; day++) {
       const date = dates[i];
@@ -49,7 +48,8 @@ const renderCalenderBody = (dates, todos, clickDone) => {
           </Table.Cell>
         )
         i++;
-      } else {
+      } 
+      else {
         row.push(<Table.Cell key={7*week+day}> </Table.Cell>)
       }
     }
@@ -64,7 +64,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table className="calendar" striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>

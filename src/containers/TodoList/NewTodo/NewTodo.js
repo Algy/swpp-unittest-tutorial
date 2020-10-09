@@ -40,6 +40,7 @@ class NewTodo extends Component {
         <label>Title</label>
         <input
           type="text"
+          className="title"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
         ></input>
@@ -51,6 +52,7 @@ class NewTodo extends Component {
         <label>Due Date</label>
         year <input
           type="text"
+          className="year"
           value={this.state.dueDate.year}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, year: event.target.value }
@@ -59,12 +61,14 @@ class NewTodo extends Component {
         month <input
           type="text"
           value={this.state.dueDate.month}
+          className="month"
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, month: event.target.value }
           })}
         ></input>
         date <input
           type="text"
+          className="date"
           value={this.state.dueDate.date}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, date: event.target.value }
