@@ -25,7 +25,7 @@ class NewTodo extends Component {
         year: now.getFullYear(),
         month: now.getMonth() + 1,
         date: now.getDate(),
-      },
+      }
     })
   }
 
@@ -38,7 +38,7 @@ class NewTodo extends Component {
       <div className="NewTodo">
         <h1>Add a New Todo!</h1>
         <label>Title</label>
-        <input
+        <input  
           type="text"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
@@ -49,21 +49,21 @@ class NewTodo extends Component {
         >
         </textarea>
         <label>Due Date</label>
-        year <input
+        year <input 
           type="text"
           value={this.state.dueDate.year}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, year: event.target.value }
           })}
         ></input>
-        month <input
+        month <input 
           type="text"
           value={this.state.dueDate.month}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, month: event.target.value }
           })}
         ></input>
-        date <input
+        date <input 
           type="text"
           value={this.state.dueDate.date}
           onChange={(event) => this.setState({

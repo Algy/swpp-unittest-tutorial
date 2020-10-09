@@ -35,7 +35,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
                 return todo.year === date.getFullYear() &&
                   todo.month === date.getMonth() &&
                   todo.date === date.getDate();
-              }).map(todo => {
+              }).map(todo => { 
                 return (
                   <div
                     key={todo.id}
