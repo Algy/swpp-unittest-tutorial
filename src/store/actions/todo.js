@@ -34,9 +34,9 @@ export const postTodo_ = (td) => {
     title: td.title,
     content: td.content,
     dueDate: {
-      year: td.year,
-      month: td.month,
-      date: td.date,
+      year: td.dueDate.year,
+      month: td.dueDate.month,
+      date: td.dueDate.date,
     }
   };
 };
