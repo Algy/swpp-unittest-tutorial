@@ -6,6 +6,7 @@ import store from '../store';
 
 const stubTodo = {
   id: 0,
+  dueDate: {year: 1111, month: 11, date: 11},
   title: 'title 1',
   content: 'content 1'
 };
