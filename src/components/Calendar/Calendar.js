@@ -18,6 +18,7 @@ const CALENDAR_HEADER = (
 );
 
 const renderCalenderBody = (dates, todos, clickDone) => {
+  console.log(dates);
   let i = 0;
   const rows = [];
   for (let week=0; week<5; week++){
@@ -26,6 +27,7 @@ const renderCalenderBody = (dates, todos, clickDone) => {
     let row = [];
     for (let day=0; day<7; day++) {
       const date = dates[i];
+      
       if (date !== undefined && day === date.getDay()) {
         row.push(
           <Table.Cell className={`cell ${day === 0 && 'sunday'}`} key={7*week+day}>
@@ -64,16 +66,18 @@ const renderCalenderBody = (dates, todos, clickDone) => {
 }
 
 const renderCalendar = (dates, todos, clickDone) => (
-  <Table striped style={{"height": "600px", "width": "600px"}}>
+  <Table className='calendar' striped style={{"height": "600px", "width": "600px"}}>
     {CALENDAR_HEADER}
     {renderCalenderBody(dates, todos, clickDone)}
   </Table>
 )
 
 const Calendar = (props) => {
+  console.log(props)
   const dates = [];
   const year = props.year;
   const month = props.month - 1;
+  console.log(month);
   let date = 1;
   let maxDate = (new Date(year, month + 1, 0)).getDate();
 
