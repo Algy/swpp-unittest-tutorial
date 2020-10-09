@@ -73,9 +73,9 @@ const renderCalendar = (dates, todos, clickDone) => (
 const Calendar = (props) => {
   const dates = [];
   const year = props.year;
-  const month = props.month - 1;
+  const month = props.month;
   let date = 1;
-  let maxDate = (new Date(year, month + 1, 0)).getDate();
+  let maxDate = (new Date(year, month, 0)).getDate();
 
   for (let date=1; date<=maxDate; date++) {
     dates.push(new Date(year, month, date));

@@ -33,21 +33,16 @@ export const postTodo_ = (td) => {
     id: td.id,
     title: td.title,
     content: td.content,
-    dueDate: {
-      year: td.year,
-      month: td.month,
-      date: td.date,
-    }
+    year: td.year,
+    month: td.month,
+    date: td.date,
   };
 };
 
 export const postTodo = (td) => {
   const todo = {
     ...td,
-    dueDate: {
-      ...td.dueDate,
-      month: td.dueDate.month - 1,
-    },
+    month: td.month -1,
   }
   return (dispatch) => {
     return axios.post('/api/todo/', todo)
