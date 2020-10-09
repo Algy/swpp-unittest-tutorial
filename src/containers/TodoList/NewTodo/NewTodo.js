@@ -23,7 +23,7 @@ class NewTodo extends Component {
       ...this.state,
       dueDate: {
         year: now.getFullYear(),
-        month: now.getMonth() + 1,
+        month: now.getMonth(),
         date: now.getDate(),
       },
     })
