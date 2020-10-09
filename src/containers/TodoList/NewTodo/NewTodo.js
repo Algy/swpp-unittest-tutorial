@@ -38,7 +38,7 @@ class NewTodo extends Component {
       <div className="NewTodo">
         <h1>Add a New Todo!</h1>
         <label>Title</label>
-        <input
+        <input className="title-input"
           type="text"
           value={this.state.title}
           onChange={(event) => this.setState({ title: event.target.value })}
@@ -50,21 +50,21 @@ class NewTodo extends Component {
         </textarea>
         <label>Due Date</label>
         year <input
-          type="text"
+          type="text" className = "year-input"
           value={this.state.dueDate.year}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, year: event.target.value }
           })}
         ></input>
         month <input
-          type="text"
+          type="text" className = "month-input"
           value={this.state.dueDate.month}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, month: event.target.value }
           })}
         ></input>
         date <input
-          type="text"
+          type="text" className = "date-input"
           value={this.state.dueDate.date}
           onChange={(event) => this.setState({
             dueDate: {...this.state.dueDate, date: event.target.value }
