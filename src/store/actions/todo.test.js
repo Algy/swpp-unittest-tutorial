@@ -7,13 +7,18 @@ import store from '../store';
 const stubTodo = {
   id: 0,
   title: 'title 1',
-  content: 'content 1'
+  content: 'content 1',
+  dueDate: {
+    year: 2020,
+    month: 10,
+    date: 9,
+  },
 };
 
 describe('ActionCreators', () => {
   afterEach(() => {
     jest.clearAllMocks();
-  })
+  });
   // Implementation using `jest.fn` API
   /*
   it(`'getTodos' should fetch todos correctly`, (done) => {
@@ -55,7 +60,7 @@ describe('ActionCreators', () => {
           };
           resolve(result);
         });
-      })
+      });
 
     store.dispatch(actionCreators.getTodos()).then(() => {
       const newState = store.getState();
@@ -75,7 +80,7 @@ describe('ActionCreators', () => {
           };
           resolve(result);
         });
-      })
+      });
 
     store.dispatch(actionCreators.getTodo()).then(() => {
       const newState = store.getState();
@@ -95,7 +100,7 @@ describe('ActionCreators', () => {
           };
           resolve(result);
         });
-      })
+      });
 
     store.dispatch(actionCreators.postTodo(stubTodo)).then(() => {
       expect(spy).toHaveBeenCalledTimes(1);
@@ -113,7 +118,7 @@ describe('ActionCreators', () => {
           };
           resolve(result);
         });
-      })
+      });
 
     store.dispatch(actionCreators.deleteTodo()).then(() => {
       expect(spy).toHaveBeenCalledTimes(1);
@@ -131,7 +136,7 @@ describe('ActionCreators', () => {
           };
           resolve(result);
         });
-      })
+      });
 
     store.dispatch(actionCreators.toggleTodo()).then(() => {
       expect(spy).toHaveBeenCalledTimes(1);
