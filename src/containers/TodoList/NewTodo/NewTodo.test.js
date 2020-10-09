@@ -53,7 +53,7 @@ describe('<NewTodo />', () => {
   it(`should set state properly on title input`, () => {
     const title = 'TEST_TITLE'
     const component = mount(newTodo);
-    const wrapper = component.find('input');
+    const wrapper = component.find('.inputtitle');
     wrapper.simulate('change', { target: { value: title } });
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual(title);
@@ -68,6 +68,39 @@ describe('<NewTodo />', () => {
     const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
     expect(newTodoInstance.state.title).toEqual('');
     expect(newTodoInstance.state.content).toEqual(content);
+  });
+  it(`should set state properly on content input year`, () => {
+    const content = 'TEST_CONTENT'
+    const component = mount(newTodo);
+    const wrapper = component.find('.dueyear');
+    wrapper.simulate('change', { target: { value: content } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.year).toEqual(content);
+    
+  });
+  it(`should set state properly on content input month`, () => {
+    const content = 'TEST_CONTENT'
+    const component = mount(newTodo);
+    const wrapper = component.find('.duemonth');
+    wrapper.simulate('change', { target: { value: content } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.month).toEqual(content);
+    
+  });
+  it(`should set state properly on content input year`, () => {
+    const content = 'TEST_CONTENT'
+    const component = mount(newTodo);
+    const wrapper = component.find('.dueday');
+    wrapper.simulate('change', { target: { value: content } });
+    const newTodoInstance = component.find(NewTodo.WrappedComponent).instance();
+    expect(newTodoInstance.state.title).toEqual('');
+    expect(newTodoInstance.state.content).toEqual('');
+    expect(newTodoInstance.state.dueDate.date).toEqual(content);
+    
   });
 });
 
