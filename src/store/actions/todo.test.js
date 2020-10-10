@@ -7,7 +7,12 @@ import store from '../store';
 const stubTodo = {
   id: 0,
   title: 'title 1',
-  content: 'content 1'
+  content: 'content 1',
+  dueDate: {
+    year: 2020,
+    month: 11,
+    date: 3,
+  },
 };
 
 describe('ActionCreators', () => {
@@ -15,7 +20,7 @@ describe('ActionCreators', () => {
     jest.clearAllMocks();
   })
   // Implementation using `jest.fn` API
-  /*
+  // /*
   it(`'getTodos' should fetch todos correctly`, (done) => {
     const stubTodoList = [{
       id: 0,
@@ -33,7 +38,7 @@ describe('ActionCreators', () => {
         resolve(result);
       })
     });
-
+    expect(store.getState().td.todos).toEqual([]);
     store.dispatch(actionCreators.getTodos()).then(() => {
       const newState = store.getState();
       expect(newState.td.todos).toBe(stubTodoList);
@@ -41,7 +46,7 @@ describe('ActionCreators', () => {
       done();
     });
   });
-  */
+  // */
   // Implementation using `spyOn` API
   it(`'getTodos' should fetch todos correctly`, (done) => {
     const stubTodoList = [stubTodo];
@@ -77,6 +82,7 @@ describe('ActionCreators', () => {
         });
       })
 
+    
     store.dispatch(actionCreators.getTodo()).then(() => {
       const newState = store.getState();
       expect(newState.td.selectedTodo).toBe(stubTodo);
@@ -97,7 +103,7 @@ describe('ActionCreators', () => {
         });
       })
 
-    store.dispatch(actionCreators.postTodo()).then(() => {
+    store.dispatch(actionCreators.postTodo(stubTodo)).then(() => {
       expect(spy).toHaveBeenCalledTimes(1);
       done();
     });
