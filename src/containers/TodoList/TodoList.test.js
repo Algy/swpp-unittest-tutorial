@@ -53,6 +53,7 @@ describe('<TodoList />', () => {
 
   it('should render Todos', () => {
     const component = mount(todoList);
+    console.log(component.debug())
     const wrapper = component.find('.spyTodo');
     expect(wrapper.length).toBe(3);
     expect(wrapper.at(0).text()).toBe('TODO_TEST_TITLE_1');
@@ -78,7 +79,7 @@ describe('<TodoList />', () => {
     const wrapper = component.find('.spyTodo .deleteButton').at(0);
     wrapper.simulate('click');
     expect(spyDeleteTodo).toHaveBeenCalledTimes(1);
-  });
+  }); 
 
   it(`should call 'clickDone'`, () => {
     const spyToggleTodo = jest.spyOn(actionCreators, 'toggleTodo')
